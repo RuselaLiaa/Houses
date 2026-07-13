@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Selangor Property Hub | 雪兰莪房地产买卖平台</title>
+  <meta name="description" content="雪兰莪房地产买卖资讯平台，提供住宅、公寓、排屋、商业单位、投资物业与买卖流程指南。" />
+
+  <style>
+    :root {
+      --navy: #0b1324;
+      --deep: #111827;
+      --blue: #2563eb;
+      --cyan: #38bdf8;
+      --gold: #d6a84f;
+      --cream: #f8f5ee;
+      --paper: #ffffff;
+      --soft: #eef4ff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #dbe3ef;
+      --green: #0f766e;
+      --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+      background: #f5f7fb;
+      color: var(--text);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .top-strip {
+      background: var(--navy);
+      color: #dbeafe;
+      padding: 10px 6%;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid rgba(56,189,248,0.18);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 247, 251, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+      padding: 16px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 28% 22%, rgba(255,255,255,0.95), transparent 24%),
+        linear-gradient(145deg, #38bdf8, #2563eb 55%, #0b1324);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 22px;
+      left: 13px;
+      bottom: 10px;
+      background: rgba(255,255,255,0.85);
+      clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0 100%, 0 38%);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 11px;
+      left: 19px;
+      bottom: 10px;
+      background: #2563eb;
+      border-radius: 2px 2px 0 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      min-height: 790px;
+      padding: 88px 6%;
+      display: grid;
+      grid-template-columns: 0.98fr 1.02fr;
+      align-items: center;
+      gap: 46px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(56,189,248,0.20), transparent 26%),
+        radial-gradient(circle at 78% 14%, rgba(214,168,79,0.16), transparent 24%),
+        linear-gradient(135deg, #ffffff 0%, #eef4ff 52%, #0b1324 52%, #070b14 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 580px;
+      height: 580px;
+      border-radius: 50%;
+      border: 1px solid rgba(56,189,248,0.25);
+      right: -190px;
+      top: -170px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.10);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.05;
+      letter-spacing: -2.8px;
+      color: var(--navy);
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+
+    .hero h1 span {
+      display: block;
+      background: linear-gradient(110deg, #0b1324, #2563eb, #0f766e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: #4b5563;
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 14px 32px rgba(37,99,235,0.28);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      border: 1px solid var(--line);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 720px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(219,227,239,0.95);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 14px 32px rgba(15,23,42,0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--navy);
+      font-size: 22px;
+      letter-spacing: -0.7px;
+      margin-bottom: 3px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 620px;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+
+    .property-card {
+      width: min(540px, 94vw);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+        linear-gradient(145deg, #172033, #070b14);
+      border: 1px solid rgba(56,189,248,0.22);
+      border-radius: 40px;
+      padding: 28px;
+      color: white;
+      box-shadow: 0 44px 90px rgba(0,0,0,0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .property-card::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(37,99,235,0.28);
+      right: -100px;
+      top: -100px;
+      filter: blur(3px);
+    }
+
+    .property-image {
+      height: 320px;
+      border-radius: 30px;
+      background:
+        linear-gradient(rgba(7,11,20,0.05), rgba(7,11,20,0.32)),
+        url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 22px;
+      overflow: hidden;
+    }
+
+    .property-image::after {
+      content: "Selangor Property";
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      background: rgba(0,0,0,0.58);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      backdrop-filter: blur(10px);
+    }
+
+    .property-card h2 {
+      position: relative;
+      z-index: 2;
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .property-card p {
+      position: relative;
+      z-index: 2;
+      color: #d1d5db;
+      font-size: 15px;
+    }
+
+    section {
+      padding: 88px 6%;
+    }
+
+    .section-title {
+      max-width: 860px;
+      margin-bottom: 46px;
+    }
+
+    .section-title.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title small {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .section-title h2 {
+      color: var(--navy);
+      margin-top: 10px;
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .section-title p {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 790px;
+    }
+
+    .search-panel {
+      margin-top: -42px;
+      position: relative;
+      z-index: 6;
+      padding: 0 6%;
+    }
+
+    .search-box {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .search-item {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+      background: #fbfdff;
+    }
+
+    .search-item small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .search-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 18px;
+      letter-spacing: -0.4px;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .area-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(15,23,42,0.07);
+      transition: 0.25s ease;
+    }
+
+    .area-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(15,23,42,0.12);
+    }
+
+    .area-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .area-content {
+      padding: 24px;
+    }
+
+    .area-content h3 {
+      color: var(--navy);
+      font-size: 23px;
+      letter-spacing: -0.7px;
+      margin-bottom: 8px;
+    }
+
+    .area-content p {
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    .info-band {
+      padding: 0;
+      background: var(--navy);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
+    }
+
+    .info-image {
+      min-height: 620px;
+      background:
+        linear-gradient(90deg, rgba(7,11,20,0.08), rgba(7,11,20,0.45)),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .info-copy {
+      padding: 84px 6vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .info-copy small {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .info-copy h2 {
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .info-copy p {
+      color: #d1d5db;
+      font-size: 17px;
+      margin-bottom: 16px;
+      max-width: 720px;
+    }
+
+    .property-types {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(37,99,235,0.12), transparent 25%),
+        radial-gradient(circle at 80% 8%, rgba(15,118,110,0.12), transparent 25%),
+        #ffffff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .type-card {
+      background: #f8fbff;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(15,23,42,0.06);
+    }
+
+    .type-card img {
+      width: 100%;
+      height: 235px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .type-content {
+      padding: 26px;
+    }
+
+    .type-tag {
+      width: fit-content;
+      background: #eaf3ff;
+      color: var(--blue);
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 12px;
+    }
+
+    .type-content h3 {
+      font-size: 25px;
+      color: var(--navy);
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+    }
+
+    .type-content p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .process-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 24px;
+      min-height: 270px;
+      box-shadow: 0 16px 36px rgba(15,23,42,0.055);
+    }
+
+    .process-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--navy);
+      color: var(--cyan);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .process-card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    .guide-section {
+      background: #f5f7fb;
+    }
+
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 0.76fr 1.24fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .guide-side {
+      position: sticky;
+      top: 104px;
+      background:
+        radial-gradient(circle at 30% 0%, rgba(56,189,248,0.22), transparent 28%),
+        linear-gradient(145deg, #111827, #070b14);
+      border-radius: 34px;
+      padding: 34px;
+      color: white;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(56,189,248,0.16);
+    }
+
+    .guide-side h3 {
+      font-size: 31px;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .guide-side p {
+      color: #d1d5db;
+      margin-bottom: 22px;
+    }
+
+    .guide-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .guide-list div {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 14px;
+      color: #e5e7eb;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .guide-main {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .guide-main h3 {
+      color: var(--navy);
+      font-size: 30px;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+      margin-top: 34px;
+    }
+
+    .guide-main h3:first-child {
+      margin-top: 0;
+    }
+
+    .guide-main p {
+      color: #4b5563;
+      font-size: 16.5px;
+      margin-bottom: 16px;
+    }
+
+    .guide-main ul {
+      margin: 10px 0 20px 22px;
+      color: #4b5563;
+    }
+
+    .guide-main li {
+      margin-bottom: 10px;
+    }
+
+    .investment {
+      background: var(--navy);
+      color: white;
+    }
+
+    .investment .section-title h2 {
+      color: white;
+    }
+
+    .investment .section-title p {
+      color: #d1d5db;
+    }
+
+    .investment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .investment-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 250px;
+    }
+
+    .investment-card strong {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(56,189,248,0.16);
+      color: var(--cyan);
+      margin-bottom: 18px;
+      font-weight: 900;
+    }
+
+    .investment-card h3 {
+      font-size: 22px;
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
+    }
+
+    .investment-card p {
+      color: #d1d5db;
+      font-size: 14.5px;
+    }
+
+    .contact-section {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(37,99,235,0.12), transparent 25%),
+        radial-gradient(circle at 82% 12%, rgba(214,168,79,0.12), transparent 25%),
+        #ffffff;
+    }
+
+    .contact-card {
+      background:
+        linear-gradient(rgba(11,19,36,0.75), rgba(11,19,36,0.82)),
+        url("https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+      border-radius: 38px;
+      padding: 58px;
+      color: white;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-card h2 {
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .contact-card p {
+      color: #dbeafe;
+      font-size: 17px;
+      max-width: 700px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-info div {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-info small {
+      display: block;
+      color: #93c5fd;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    .contact-info strong {
+      color: white;
+      font-size: 18px;
+    }
+
+    .faq-section {
+      background: #f5f7fb;
+    }
+
+    .faq {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px 24px;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.045);
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    details p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15.5px;
+    }
+
+    footer {
+      background: #050912;
+      color: #cbd5e1;
+      padding: 48px 6%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr 0.7fr;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+
+    footer h3 {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #aeb8c7;
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.11);
+      padding-top: 20px;
+      text-align: center;
+      color: #8792a1;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1120px) {
+      nav {
+        display: none;
+      }
+
+      .hero,
+      .info-band,
+      .guide-layout,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        background:
+          radial-gradient(circle at 8% 8%, rgba(56,189,248,0.20), transparent 26%),
+          linear-gradient(180deg, #ffffff 0%, #eef4ff 55%, #0b1324 55%, #070b14 100%);
+      }
+
+      .search-box,
+      .area-grid,
+      .process-grid,
+      .investment-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .type-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-side {
+        position: static;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header,
+      .hero,
+      section,
+      footer,
+      .search-panel {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .brand-text strong {
+        font-size: 17px;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-stats,
+      .search-box,
+      .area-grid,
+      .process-grid,
+      .investment-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .property-card {
+        border-radius: 28px;
+        padding: 22px;
+      }
+
+      .property-image {
+        height: 260px;
+      }
+
+      .guide-main {
+        padding: 28px;
+      }
+
+      .contact-card {
+        padding: 34px 24px;
+        border-radius: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    雪兰莪房地产资讯平台 · 住宅买卖 · 投资单位 · 商业地产 · 买房卖房流程指南
+  </div>
+
+  <header>
+    <a href="#" class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <strong>Selangor Property Hub</strong>
+        <span>Real Estate Advisory</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#area">热门地区</a>
+      <a href="#types">房产类型</a>
+      <a href="#process">买卖流程</a>
+      <a href="#guide">购屋指南</a>
+      <a href="#contact">联系方式</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Selangor Real Estate</div>
+
+        <h1>
+          雪兰莪房产买卖
+          <span>一站式资讯平台</span>
+        </h1>
+
+        <p>
+          无论您正在寻找自住房、投资单位、二手排屋、公寓、服务式住宅或商业单位，
+          我们整理雪兰莪热门地区与买卖流程资讯，帮助您更清楚了解房产选择、预算规划、
+          地点优势与交易步骤。
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#area">浏览热门地区</a>
+          <a class="btn btn-secondary" href="#guide">查看购屋指南</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>住宅买卖</strong>
+            <span>公寓、排屋、半独立式、独立式住宅。</span>
+          </div>
+
+          <div class="stat">
+            <strong>投资单位</strong>
+            <span>适合出租、长期持有或资产配置参考。</span>
+          </div>
+
+          <div class="stat">
+            <strong>雪兰莪地区</strong>
+            <span>覆盖 Shah Alam、PJ、Subang、Kajang 等区域。</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="property-card">
+          <div class="property-image"></div>
+          <h2>从地点、预算、生活圈到未来规划，找到更适合您的房产方向。</h2>
+          <p>
+            房产不是简单的买卖决定。选择合适地区、了解周边设施、掌握贷款预算和交易流程，
+            都能让整个过程更清晰、更安心。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="search-panel">
+      <div class="search-box">
+        <div class="search-item">
+          <small>主要地区</small>
+          <strong>Selangor / Klang Valley</strong>
+        </div>
+
+        <div class="search-item">
+          <small>房产类型</small>
+          <strong>住宅 · 商业 · 投资</strong>
+        </div>
+
+        <div class="search-item">
+          <small>适合对象</small>
+          <strong>首购族 · 家庭 · 投资者</strong>
+        </div>
+
+        <div class="search-item">
+          <small>服务语言</small>
+          <strong>中文 · English · BM</strong>
+        </div>
+      </div>
+    </div>
+
+    <section id="area">
+      <div class="section-title center">
+        <small>Popular Areas</small>
+        <h2>雪兰莪热门房产地区</h2>
+        <p>
+          不同地区拥有不同生活节奏、交通便利性、商业成熟度与房价结构。
+          以下是常见受到买家关注的雪兰莪区域。
+        </p>
+      </div>
+
+      <div class="area-grid">
+        <article class="area-card">
+          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=900&q=80" alt="Petaling Jaya property">
+          <div class="area-content">
+            <h3>Petaling Jaya</h3>
+            <p>
+              成熟社区，商业活动活跃，生活设施完整，适合注重便利性与城市生活的买家。
+            </p>
+          </div>
+        </article>
+
+        <article class="area-card">
+          <img src="https://images.unsplash.com/photo-1600585153490-76fb20a32601?auto=format&fit=crop&w=900&q=80" alt="Subang Jaya house">
+          <div class="area-content">
+            <h3>Subang Jaya</h3>
+            <p>
+              学府、商场、住宅区与交通网络完善，适合家庭、学生租赁市场与长期居住。
+            </p>
+          </div>
+        </article>
+
+        <article class="area-card">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="Shah Alam property">
+          <div class="area-content">
+            <h3>Shah Alam</h3>
+            <p>
+              规划性强，住宅区较宽敞，适合追求安静环境、家庭居住与社区型生活。
+            </p>
+          </div>
+        </article>
+
+        <article class="area-card">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Kajang property">
+          <div class="area-content">
+            <h3>Kajang / Semenyih</h3>
+            <p>
+              新发展项目较多，价格选择较广，适合预算规划明确和看重未来发展潜力的买家。
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="info-band">
+      <div class="info-image"></div>
+
+      <div class="info-copy">
+        <small>Property Lifestyle</small>
+        <h2>买房不只是看价格，更要看生活方式与长期规划。</h2>
+        <p>
+          在雪兰莪选择房产时，地点是非常关键的因素。除了房价本身，
+          买家也需要考虑日常通勤、学校、医院、商场、交通连接、社区安全、
+          管理费、出租需求以及未来发展规划。
+        </p>
+        <p>
+          如果是自住，生活便利性和家庭需求更重要；如果是投资，
+          则需要重点观察租金需求、单位流动性、周边人口结构和未来供应量。
+        </p>
+        <p>
+          一个好的房地产网站，不只是展示单位图片，也应该让访客清楚了解
+          地区价值、购买流程、成本预算和常见风险。
+        </p>
+      </div>
+    </section>
+
+    <section id="types" class="property-types">
+      <div class="section-title center">
+        <small>Property Categories</small>
+        <h2>常见房产类型</h2>
+        <p>
+          不同房产类型适合不同预算、生活方式与投资策略。了解分类后，
+          更容易筛选出适合自己的方向。
+        </p>
+      </div>
+
+      <div class="type-grid">
+        <article class="type-card">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80" alt="Landed house">
+          <div class="type-content">
+            <div class="type-tag">Landed Property</div>
+            <h3>有地住宅</h3>
+            <p>
+              包括排屋、半独立式与独立式住宅。适合家庭居住，空间较大，
+              但通常需要更高预算和维护成本。
+            </p>
+          </div>
+        </article>
+
+        <article class="type-card">
+          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=900&q=80" alt="Condominium">
+          <div class="type-content">
+            <div class="type-tag">Condominium</div>
+            <h3>公寓 / 服务式住宅</h3>
+            <p>
+              适合喜欢设施便利、保安管理和城市生活的人群。
+              投资者也常关注出租回酬与管理费水平。
+            </p>
+          </div>
+        </article>
+
+        <article class="type-card">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Commercial property">
+          <div class="type-content">
+            <div class="type-tag">Commercial</div>
+            <h3>商业单位</h3>
+            <p>
+              包括店铺、办公室、小型商业空间等。适合创业用途或商业投资，
+              需要额外考虑人流、位置和租户质量。
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="section-title center">
+        <small>Transaction Process</small>
+        <h2>房产买卖基本流程</h2>
+        <p>
+          让买家和卖家提前了解流程，可以减少沟通成本，也让整个交易看起来更专业。
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-number">1</div>
+          <h3>需求分析</h3>
+          <p>
+            明确预算、地区、房型、用途、贷款能力和入住时间，缩小筛选范围。
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">2</div>
+          <h3>筛选单位</h3>
+          <p>
+            根据地点、价格、面积、楼层、屋况、管理费和周边设施进行比较。
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">3</div>
+          <h3>看房评估</h3>
+          <p>
+            实地观察采光、通风、噪音、停车位、公共设施和整体维护状况。
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">4</div>
+          <h3>贷款与文件</h3>
+          <p>
+            准备收入文件、银行预批、律师文件、买卖合约和相关交易成本。
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">5</div>
+          <h3>完成交易</h3>
+          <p>
+            在律师、银行和相关单位协助下完成过户、付款安排和钥匙交接。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="guide" class="guide-section">
+      <div class="section-title">
+        <small>Buyer & Seller Guide</small>
+        <h2>雪兰莪买房与卖房实用指南</h2>
+        <p>
+          以下内容适合放在 landing page 中，让页面更完整，也帮助访客理解买卖房产前
+          应该注意哪些重点。
+        </p>
+      </div>
+
+      <div class="guide-layout">
+        <aside class="guide-side">
+          <h3>买卖房产前，先看这几个重点</h3>
+          <p>
+            房产交易涉及金额较大，建议买家和卖家都提前了解流程、成本和文件准备。
+          </p>
+
+          <div class="guide-list">
+            <div>预算与贷款能力</div>
+            <div>地点与周边设施</div>
+            <div>房屋状态与维修成本</div>
+            <div>管理费与隐藏成本</div>
+            <div>律师费、印花税与过户流程</div>
+            <div>未来出租与转售潜力</div>
+          </div>
+        </aside>
+
+        <article class="guide-main">
+          <h3>1. 首购族应该如何开始？</h3>
+          <p>
+            首次买房时，不建议一开始就只看漂亮的单位图片。更重要的是先确认预算、
+            银行贷款能力、每月供款、生活开销和未来现金流。房价只是其中一部分，
+            交易中还可能涉及律师费、印花税、估价费、保险和装修预算。
+          </p>
+          <p>
+            明确预算后，再根据通勤距离、生活圈、家庭需求和未来规划选择地区，
+            这样可以避免看太多不适合自己的单位。
+          </p>
+
+          <h3>2. 投资房产需要看什么？</h3>
+          <p>
+            如果目的是投资，重点不只是买入价格，还包括出租需求、租金回酬、
+            空置风险、管理费、维修成本和未来转售流动性。
+          </p>
+          <ul>
+            <li>观察周边是否有学校、医院、办公区或商业中心。</li>
+            <li>了解同区类似单位的租金范围。</li>
+            <li>注意未来供应量，避免同类型单位过多影响租金。</li>
+            <li>计算净回酬，而不是只看表面租金。</li>
+          </ul>
+
+          <h3>3. 卖房前应该准备什么？</h3>
+          <p>
+            卖家在放盘前可以先整理房屋文件、贷款余额、地契或分层地契状态、
+            管理费记录、维修记录和房屋照片。一个整洁、资料完整的单位通常更容易
+            让买家产生信任。
+          </p>
+          <p>
+            如果单位有明显损坏，建议先进行基本维修。干净的空间、良好的采光和整齐的照片，
+            都有助于提升买家的第一印象。
+          </p>
+
+          <h3>4. 为什么地点那么重要？</h3>
+          <p>
+            房产价值长期受到地点影响。交通、商业活动、人口增长、教育资源、
+            医疗设施和社区成熟度都会影响居住体验与未来转售潜力。
+          </p>
+          <p>
+            在雪兰莪，不同地区发展阶段不同。成熟地区生活便利但价格较高；
+            新兴地区价格选择较多，但需要观察未来发展是否能够兑现。
+          </p>
+
+          <h3>5. 看房时要注意哪些细节？</h3>
+          <p>
+            看房时建议不要只关注装修。更需要检查墙身水印、天花渗水、地砖空鼓、
+            电源插座、水压、采光、噪音、停车位、保安管理和公共设施维护情况。
+          </p>
+          <p>
+            如果是公寓，也要了解管理费、sinking fund、设施状态、住户结构和管理层效率。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="investment">
+      <div class="section-title center">
+        <small>Investment Notes</small>
+        <h2>房产投资需要长期视角</h2>
+        <p>
+          房产是长期资产，不适合只凭短期情绪决定。以下几个因素适合加入网站内容中，
+          让页面更有专业感。
+        </p>
+      </div>
+
+      <div class="investment-grid">
+        <div class="investment-card">
+          <strong>01</strong>
+          <h3>租金需求</h3>
+          <p>
+            靠近学校、办公区、医院或交通枢纽的单位，通常更容易获得租客关注。
+          </p>
+        </div>
+
+        <div class="investment-card">
+          <strong>02</strong>
+          <h3>持有成本</h3>
+          <p>
+            投资前需要计算贷款、管理费、维修费、保险、税务与空置期成本。
+          </p>
+        </div>
+
+        <div class="investment-card">
+          <strong>03</strong>
+          <h3>区域供应</h3>
+          <p>
+            如果同区新项目供应太多，可能影响出租竞争和未来转售速度。
+          </p>
+        </div>
+
+        <div class="investment-card">
+          <strong>04</strong>
+          <h3>转售流动性</h3>
+          <p>
+            好地点、合理价格和适合大众需求的单位，通常更容易在未来转售。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-card">
+        <div>
+          <h2>想了解雪兰莪房产买卖方向？</h2>
+          <p>
+            您可以把这里改成真实的联系资料、公司地址、营业时间或负责人资料。
+            这个区块适合放在 landing page 底部，让访客清楚知道如何进一步了解房产资讯。
+          </p>
+        </div>
+
+        <div class="contact-info">
+          <div>
+            <small>服务地区</small>
+            <strong>Selangor · Klang Valley</strong>
+          </div>
+
+          <div>
+            <small>咨询语言</small>
+            <strong>中文 · English · Bahasa Malaysia</strong>
+          </div>
+
+          <div>
+            <small>业务类型</small>
+            <strong>买房 · 卖房 · 投资咨询 · 单位筛选</strong>
+          </div>
+
+          <div>
+            <small>联系方式</small>
+            <strong>WhatsApp: +60 12-345 6789</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+      <div class="section-title center">
+        <small>FAQ</small>
+        <h2>常见问题</h2>
+        <p>
+          FAQ 能让 landing page 看起来更完整，也帮助访客快速理解房产买卖基本问题。
+        </p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>第一次买房应该先看房还是先算贷款？</summary>
+          <p>
+            建议先了解自己的贷款能力和每月可承受供款，再开始筛选地区和单位。
+            这样可以避免浪费时间看超出预算的房产。
+          </p>
+        </details>
+
+        <details>
+          <summary>买二手房需要注意什么？</summary>
+          <p>
+            需要注意屋况、维修成本、产权状态、贷款余额、管理费记录、周边成交价、
+            以及买卖合约中的交屋条款。
+          </p>
+        </details>
+
+        <details>
+          <summary>公寓和有地住宅哪个更适合投资？</summary>
+          <p>
+            这取决于地点、预算、出租需求和持有成本。公寓通常较容易出租，
+            但有管理费；有地住宅空间较大，但入门预算可能更高。
+          </p>
+        </details>
+
+        <details>
+          <summary>卖房前需要装修吗？</summary>
+          <p>
+            不一定需要大装修，但基本清洁、修补明显损坏、改善灯光和整理空间，
+            可以提升买家第一印象。
+          </p>
+        </details>
+
+        <details>
+          <summary>雪兰莪哪些地区比较热门？</summary>
+          <p>
+            常见受关注地区包括 Petaling Jaya、Subang Jaya、Shah Alam、Puchong、
+            Klang、Kajang、Semenyih、Setia Alam 和 Cyberjaya 等。实际选择需要根据预算、
+           工作地点和生活需求判断。
+          </p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Selangor Property Hub</h3>
+        <p>
+          雪兰莪房地产资讯 landing page，适合展示住宅买卖、投资单位、地区指南、
+          买卖流程与房产咨询服务。
+        </p>
+      </div>
+
+      <div>
+        <h3>页面导航</h3>
+        <a href="#area">热门地区</a>
+        <a href="#types">房产类型</a>
+        <a href="#process">买卖流程</a>
+        <a href="#guide">购屋指南</a>
+      </div>
+
+      <div>
+        <h3>资讯</h3>
+        <a href="#">关于我们</a>
+        <a href="#">隐私声明</a>
+        <a href="#">免责声明</a>
+        <a href="#">联系资料</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Selangor Property Hub. 房产资讯内容仅供一般参考，并不构成法律、金融或投资建议。
+    </div>
+  </footer>
+
+</body>
+</html>
